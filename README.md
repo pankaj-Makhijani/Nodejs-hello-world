@@ -1,4 +1,3 @@
-# Nodejs-hello-world
+# Command to start this application
 
-Hey there! WHatsup?
-     
+docker-compose up -d
