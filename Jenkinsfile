@@ -8,10 +8,14 @@ pipeline {
             }
         }
         stage('Install Dependencies'){
-            npm install && npm install -g pm2
+            steps {
+                sh 'npm install && npm install -g pm2'
+            }
         }
         stage('Start Application'){
-            pm2 startOrRestart index.js
+            steps {
+                sh 'pm2 startOrRestart pm2.config.json'
+            }
         }
     }
 }
