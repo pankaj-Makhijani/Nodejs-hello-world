@@ -1,3 +1,3 @@
-# Command to start this application
+# Command to start this application:
 
 docker-compose up -d
