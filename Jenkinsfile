@@ -12,7 +12,17 @@ pipeline {
                 sh 'npm install && npm install -g pm2'
             }
         }
+        stage('Perform API testing'){
+            steps {
+                sh 'npm test'
+            }
+        }
         stage('Start Application'){
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "Pankaj"
+            }
             steps {
                 sh 'pm2 startOrRestart pm2.config.json'
             }

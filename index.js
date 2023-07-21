@@ -7,3 +7,5 @@ app.get('/', (req, res) => {
     res.end(html);
 });
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
+
+module.exports = app;
