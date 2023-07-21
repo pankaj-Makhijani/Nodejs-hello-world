@@ -22,7 +22,7 @@ pipeline {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
-                submitter "Pankaj"
+                submitter "Pankaj Makhijani, Pankaj"
             }
             steps {
                 sh 'npm start'
