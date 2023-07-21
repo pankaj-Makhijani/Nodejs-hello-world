@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    // tools (nodejs "nodejs")
+    tools (nodejs "nodejs")
     stages {
         stage('Clone Repository'){
             steps {
@@ -10,7 +10,6 @@ pipeline {
         stage('Install Dependencies'){
             steps {
                 sh 'npm install'
-                // sh 'npm install -g pm2'
             }
         }
         stage('Perform API testing'){
@@ -26,10 +25,6 @@ pipeline {
             }
             steps {
                 sh 'npm start'
-                // sh 'pm2 startOrRestart pm2.config.json'
-                // sh 'pm2 list'
-                // sh 'pm2 describe MyApp'
-                // sh 'ifconfig -a'
             }
         }
     }
