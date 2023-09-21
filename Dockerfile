@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM public.ecr.aws/m9h7v0h3/node:18-alpine
 WORKDIR app
 COPY . .
 RUN npm install
