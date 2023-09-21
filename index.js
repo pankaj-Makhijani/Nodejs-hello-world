@@ -6,6 +6,6 @@ app.get('/', (req, res) => {
     const html = '<html><body><h1>Kya Bolti Public?</h1></body></html>';
     res.end(html);
 });
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
+app.listen(port, () => console.log(`Hello world app started & listening on port ${port}!`))
 
 module.exports = app;
