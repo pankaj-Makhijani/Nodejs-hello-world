@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const dotenv = require('dotenv');
+dotenv.config()    
+const port = process.env.PORT;
+
 app.get('/', (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
     const html = '<html><body><h1>Hello World</h1></body></html>';
