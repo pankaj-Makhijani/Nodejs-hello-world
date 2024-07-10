@@ -4,11 +4,11 @@ const { Pool } = require('pg');
 
 const port = 80;
 const pool = new Pool({
-    host: "development-databasestack-db1de0c8f27-t4ng8tgy3eu5.ct8uc8q0qdtq.eu-west-1.rds.amazonaws.com",
+    host: "development-databasestack-db102d879c3-tc4fcgfty1pd.ct8uc8q0qdtq.eu-west-1.rds.amazonaws.com",
     port: 5432,
     user: "postgres",
-    password: "8CHLxj2ki6jwk6LD",
-    database: "verxdevdb",
+    password: "EFTisg5fZMwr24H7",
+    database: "verifycleandevdb",
     ssl: {
         rejectUnauthorized: false
     }
