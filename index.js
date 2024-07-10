@@ -32,7 +32,7 @@ app.get('/service1', async (req, res) => {
         client.release();
         
         res.writeHead(200, {'Content-Type': 'text/html'});
-        const html = `<html><body><h1>Hello (Updated) from Service 1</h1><p>Current Time from DB: ${result.rows[0].now}</p></body></html>`;
+        const html = `<html><body><h1>Hello (updated code) from Service 1</h1><p>Current Time from DB: ${result.rows[0].now}</p></body></html>`;
         res.end(html);
     } catch (err) {
         console.error(err);
