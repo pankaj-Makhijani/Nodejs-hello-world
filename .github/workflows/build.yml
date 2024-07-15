@@ -24,3 +24,11 @@ jobs:
       #   timeout-minutes: 5
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+  zap-scan:
+    name: zap-scan
+    runs-on: ubuntu-latest
+    steps:
+        - name: ZAP Full Scan
+        - uses: zaproxy/action-full-scan@v0.10.0
+            
