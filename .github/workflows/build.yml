@@ -34,3 +34,4 @@ jobs:
       uses: zaproxy/action-api-scan@v0.7.0
       with:
         target: 'https://dev.pankajmakhijani.com'
+        allow_issue_writing: false
