@@ -30,7 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: zaproxy/action-full-scan@v0.10.0
-        - name: Set target URL
           env:
             TARGET_URL: "https://dev.pankajmakhijani.com"
             
