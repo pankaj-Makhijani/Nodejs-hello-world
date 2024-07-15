@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Scan the webapplication
     steps:
-      - name: ZAP Scan
-        uses: zaproxy/action-api-scan@v0.7.0
-        with:
-          target: 'https://www.zaproxy.org/'
+    - name: ZAP Scan
+      uses: zaproxy/action-full-scan@v0.10.0
+      with:
+        target: 'https://www.zaproxy.org/'
