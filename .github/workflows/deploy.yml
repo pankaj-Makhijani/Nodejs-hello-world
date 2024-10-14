@@ -1,0 +1,49 @@
+name: Build and Deploy to Azure Container Apps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # Install dependencies and build the app
+    - name: Install dependencies
+      run: npm install
+
+    # Log in to Azure using the service principal credentials
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    # Build the Docker image and tag it with the commit ID
+    - name: Build and push Docker image
+      run: |
+        az acr login --name ${{ secrets.REGISTRY_NAME }}
+        COMMIT_ID=${{ github.sha }}
+        IMAGE_NAME=${{ secrets.REGISTRY_NAME }}.azurecr.io/mynodeapp:$COMMIT_ID
+        docker build . -t $IMAGE_NAME
+        docker push $IMAGE_NAME
+
+    # Deploy the image to Azure Container Apps using the commit ID tag
+    - name: Deploy to Azure Container Apps
+      run: |
+        COMMIT_ID=${{ github.sha }}
+        az containerapp update \
+          --name ${{ secrets.CONTAINER_APP_NAME }} \
+          --resource-group ${{ secrets.RESOURCE_GROUP }} \
+          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/mynodeapp:$COMMIT_ID
