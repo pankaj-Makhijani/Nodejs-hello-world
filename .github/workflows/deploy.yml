@@ -35,7 +35,7 @@ jobs:
       run: |
         az acr login --name ${{ secrets.REGISTRY_NAME }}
         COMMIT_ID=${{ github.sha }}
-        IMAGE_NAME=${{ secrets.REGISTRY_NAME }}.azurecr.io/mynodeapp:$COMMIT_ID
+        IMAGE_NAME=${{ secrets.REGISTRY_NAME }}.azurecr.io/hello-world:$COMMIT_ID
         docker build . -t $IMAGE_NAME
         docker push $IMAGE_NAME
 
@@ -46,4 +46,4 @@ jobs:
         az containerapp update \
           --name ${{ secrets.CONTAINER_APP_NAME }} \
           --resource-group ${{ secrets.RESOURCE_GROUP }} \
-          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/mynodeapp:$COMMIT_ID
+          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/hello-world:$COMMIT_ID
