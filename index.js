@@ -5,7 +5,7 @@ const port = 80;
 
 app.get('/', async (req, res) => {
         res.writeHead(200, {'Content-Type': 'text/html'});
-        const html = `<html><body><h1>Hello from Service 1</h1></body></html>`;
+        const html = `<html><body><h1>Hello from Service 1 (Updated)</h1></body></html>`;
         res.end(html);
 });
 
